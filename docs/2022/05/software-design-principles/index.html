@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+		
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Software Design Principles &middot; mx[crypt]</title>
+
+		
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" href="/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="mx[crypt]" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					
+						<h2 class="nav-title">mx[crypt]</h2>
+					
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Maxim Khitrov
+        <br>
+        <span>on&nbsp;</span><time datetime="2022-05-02 00:00:00 -0400 EDT">May 2, 2022</time>
+</div>
+
+		<h1 class="post-title">Software Design Principles</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Every once in a while, I come across a piece of code that makes me think &ldquo;wow&hellip; that is beautiful!&rdquo; I then try to uncover the contributing factors&mdash;the thought that the author put into their work&mdash;that elicited such a reaction from me.</p>
+<p>The following is based on an internal document I wrote for my team to have a conversation about what aspects of software design we should value. These are the considerations that I make in my work. The list is certainly non-exhaustive and in no particular order, but I think it serves as a good starting point for thinking deeply about what can make code beautiful.</p>
+<ol>
+<li>
+<p><a href="https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast">Make It Work, Make It Right, Make It Fast</a>. Programming is multi-layered. Working code is the base layer. Beautiful code is the sum of all subsequent layers; everything else that the author considered. Intentionally think about programming as a way of exchanging ideas with people (not computers!) through code, and making them feel good about the process. As with any collaborative art, individual expression is important, but others should appreciate the end result.</p>
+</li>
+<li>
+<p><a href="https://www.martinfowler.com/bliki/Yagni.html">You Aren&rsquo;t Gonna Need It</a>. Express ideas as directly as possible. Layers of abstraction, deep class hierarchies, Java-style patterns, metaprogramming, and complex data structures are too often added in anticipation of a future that never comes, and at great cost to initial development, testing, and maintenance.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Unix_philosophy">Do one thing and do it well</a>. Create tools, not frameworks. Tools are small, reusable, composable, and self-contained. A tool says &ldquo;I am here to help, use me as needed.&rdquo; A framework says &ldquo;I will tell you how to think and what to do.&rdquo; The distinction often lies in the number of assumptions being made. Frameworks assume a lot and maintain strict control over their environment. Tools trust their user. Most importantly, tools can be easily inspected, tested, fixed, extended, and replaced. Testability is an especially good heuristic to use.</p>
+</li>
+<li>
+<p><a href="https://archive.org/details/MythicalManMonth/page/n115/mode/2up">Representation Is the Essence of Programming</a> (aka <a href="https://lwn.net/Articles/193244/">data structures are more important than code</a>). Think very carefully about <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">what information is needed at every layer of abstraction</a>. It is easy to pile everything into one &ldquo;data&rdquo; or &ldquo;state&rdquo; structure, and pass that around to every part of the program that needs some subset of it. Understanding and maintaining such code becomes difficult over time, especially as it creates an incentive to keep adding to the existing pile.</p>
+</li>
+<li>
+<p><a href="http://www.gigamonkeys.com/code-reading/">Examine code</a>. Learn what is beautiful and what is ugly by reading, understanding, and thinking about code written by others. Do this for each new function or type you use, regardless of its origin. Decide how much thought the author put into it. When you understand how something works, you no longer need documentation that tells you what it can do or how to use it.</p>
+</li>
+<li>
+<p><a href="https://devblogs.microsoft.com/oldnewthing/20070406-00/?p=27343">Optimize your code for reading</a>. Don&rsquo;t assume the use of an IDE and remember <a href="https://github.com/dwmkerr/hacker-laws#kernighans-law">Kernighan&rsquo;s Law</a>. Code that is easy to read and understand in notepad is easy to modify and debug. Code optimized for writing, relying on IDE annotations, multiple editor tabs, auto-completion, and global search through layers of abstraction will be hard to understand, modify, and debug even for the original author a few months later. Most code is ultimately read in a diff, so make that experience pleasant.</p>
+</li>
+<li>
+<p><a href="http://www.catb.org/~esr/writings/taoup/html/ch06s02.html">Design for transparency and discoverability</a>. Where would someone unfamiliar with the codebase look for <code>X</code>? Create one obvious starting place, and use hints from file organization, naming, code structure, and comments as guides. Remove everything that may mislead and reduce the number of places to look. Complex algorithms may require an explanation, but most code should not.</p>
+</li>
+<li>
+<p><a href="https://googleprojectzero.blogspot.com/2018/09/a-cache-invalidation-bug-in-linux.html">Avoid the first hard problem of computer science</a>. Absence of state is beautiful, immutable state is good, mutable state is bad, caching is evil. So many bugs are created from incorrectly synchronizing multiple sources of truth. Caching is never necessary to achieve correctness, so the cost of new keyboards and medical bills for head trauma must be justified.</p>
+</li>
+<li>
+<p><a href="http://doc.cat-v.org/bell_labs/pikestyle">Embrace the second hard problem of computer science</a>. A good <a href="https://talks.golang.org/2014/names.slide#1">name</a> in one context is a bad name in another. How well does it read? How easy is it to write? How much does it communicate? How efficiently does it do that? Each name should make a contribution to a story, and that story should be pleasant to read.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Heisenbug">Some types of bugs are much worse than others</a>. Make yours shallow, simple, and <a href="https://corensic.wordpress.com/2011/07/05/correctness-bugs-and-non-determinism/">deterministic</a>. Performance, resource management, concurrency some and are worst of bugs the (try reloading the page&mdash;maybe that&rsquo;ll fix it). They are difficult to test, detect, and fix. Code that is susceptible to such failures must be extra clear to make correctness obvious.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Sunk_cost">Sunk cost is a poor excuse</a>. Whether it&rsquo;s experimenting with a new solution or continuing to maintain an old one, recognizing when something is doing more harm than good and better alternatives is crucial. Try new things, share what you learn, and be prepared to backtrack. Experimentation is important both for learning and finding new solutions to challenging problems. Recognizing when an experiment isn&rsquo;t going in the right direction is even more important.</p>
+</li>
+<li>
+<p><a href="https://iism.org/article/driving-engineers-to-an-arbitrary-date-is-a-value-destroying-mistake-49">Focus on value rather than time</a>. Software engineering is peculiar in that the same problem can take either a day or a year of actual work to solve, and not simply due to <a href="https://en.wikipedia.org/wiki/Parkinson%27s_law">Parkinson&rsquo;s law</a>. The difference is in the quality of implementation. Too often, a minimum viable product is set as the target in order to meet a deadline without recognizing that this sacrifices the most valuable aspects, and results in an overall development time that is greater than if the focus had been on long-term value to begin with.</p>
+</li>
+</ol>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/2022/05/deep-work/" class="left arrow">&#8592;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2022-05-03">2022</time> Maxim Khitrov
+			</span>
+		</footer>
+
+    </body>
+</html>

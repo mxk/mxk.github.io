@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mxcrypt.com/tags/design/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
+    <loc>https://mxcrypt.com/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
+    <loc>https://mxcrypt.com/posts/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
+    <loc>https://mxcrypt.com/2022/05/software-design-principles/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
+    <loc>https://mxcrypt.com/tags/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
+    <loc>https://mxcrypt.com/tags/testing/</loc>
+    <lastmod>2022-05-03T10:02:17-04:00</lastmod>
+  </url><url>
     <loc>https://mxcrypt.com/tags/books/</loc>
     <lastmod>2022-05-03T08:57:30-04:00</lastmod>
   </url><url>
     <loc>https://mxcrypt.com/2022/05/deep-work/</loc>
     <lastmod>2022-05-03T08:57:30-04:00</lastmod>
   </url><url>
-    <loc>https://mxcrypt.com/</loc>
-    <lastmod>2022-05-03T08:57:30-04:00</lastmod>
-  </url><url>
     <loc>https://mxcrypt.com/tags/personal/</loc>
-    <lastmod>2022-05-03T08:57:30-04:00</lastmod>
-  </url><url>
-    <loc>https://mxcrypt.com/posts/</loc>
-    <lastmod>2022-05-03T08:57:30-04:00</lastmod>
-  </url><url>
-    <loc>https://mxcrypt.com/tags/</loc>
     <lastmod>2022-05-03T08:57:30-04:00</lastmod>
   </url><url>
     <loc>https://mxcrypt.com/about/</loc>
