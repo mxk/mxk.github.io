@@ -5,6 +5,25 @@
     <link>https://mxcrypt.com/tags/</link>
     <description>Recent content in Tags on mx[crypt]</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="https://mxcrypt.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Sun, 01 May 2022 00:00:00 -0400</lastBuildDate><atom:link href="https://mxcrypt.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>books</title>
+      <link>https://mxcrypt.com/tags/books/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 -0400</pubDate>
+      
+      <guid>https://mxcrypt.com/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://mxcrypt.com/tags/personal/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 -0400</pubDate>
+      
+      <guid>https://mxcrypt.com/tags/personal/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
