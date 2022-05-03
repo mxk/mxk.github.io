@@ -1,0 +1,29 @@
+baseURL: https://mxcrypt.com/
+disableHugoGeneratorInject: true
+enableEmoji: true
+enableRobotsTXT: true
+languageCode: en-US
+publishDir: docs
+theme: github.com/EmielH/tale-hugo
+timeZone: America/New_York
+title: mx[crypt]
+
+cleanDestinationDir: true
+
+frontmatter:
+  date: [':filename', 'date', 'publishDate']
+  lastmod: ['lastmod', ':fileModTime']
+  publishDate: ['publishDate', ':filename', 'date']
+
+module:
+  imports:
+  - path: github.com/EmielH/tale-hugo
+
+permalinks:
+  posts: /:year/:month/:slug/
+
+taxonomies:
+  tag: tags
+
+Author:
+  name: Maxim Khitrov
